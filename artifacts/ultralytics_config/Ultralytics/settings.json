@@ -1,0 +1,21 @@
+{
+  "settings_version": "0.0.6",
+  "datasets_dir": "/home/ngahi/datasets",
+  "weights_dir": "/home/ngahi/ai_model_deployment/weights",
+  "runs_dir": "/home/ngahi/ai_model_deployment/runs",
+  "uuid": "1d346e91dd9da1b880f88bcf53fd7c92ec4814847a35626bca2e126bc49a730a",
+  "sync": true,
+  "api_key": "",
+  "openai_api_key": "",
+  "clearml": true,
+  "comet": true,
+  "dvc": true,
+  "hub": true,
+  "mlflow": true,
+  "neptune": true,
+  "raytune": true,
+  "tensorboard": false,
+  "wandb": false,
+  "vscode_msg": true,
+  "openvino_msg": true
+}
