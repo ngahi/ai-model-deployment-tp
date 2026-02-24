@@ -263,6 +263,36 @@ Build a complete medical AI segmentation pipeline from scratch:
 
 Dataset → Annotation → Conversion → Training → Inference → Improvement Loop
 
+
+## ✅ Level 4 – Industrial KPI: Void Rate Computation
+
+### 🎯 Objective
+
+Transform segmentation outputs into a measurable industrial indicator.
+
+We compute:
+void_rate = total_void_area / component_area
+
+This converts raw pixel segmentation into a meaningful KPI.
+
 ---
 
-**Status: Level 3 nearly completed – Custom segmentation training phase active.**
+### 📊 Method
+
+1. Generate segmentation masks using YOLO.
+2. Extract binary masks:
+   - chip.png (component / lung)
+   - holes.png (voids / infection)
+3. Compute:
+   - component_area_px
+   - void_area_px
+4. Calculate:
+
+void_rate = void_area_px / component_area_px
+
+---
+
+### 🧮 Run Void Rate Computation
+
+```bash
+PYTHONPATH=. python scripts/compute_void_rate.py --masks-dir outputs/yolo/masks
