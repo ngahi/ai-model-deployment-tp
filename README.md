@@ -296,3 +296,44 @@ void_rate = void_area_px / component_area_px
 
 ```bash
 PYTHONPATH=. python scripts/compute_void_rate.py --masks-dir outputs/yolo/masks
+
+
+## ✅ Level 5 – SAM-based User Correction
+
+### 🎯 Objective
+
+Allow the user to correct an incorrect YOLO prediction using SAM (Segment Anything Model).
+
+---
+
+## 🔄 Correction Pipeline
+
+1. YOLO performs initial segmentation and generates:
+   - bounding boxes
+   - masks
+   - results.json
+
+2. User selects a detection ID to correct.
+
+3. YOLO bounding box is used as a prompt for SAM.
+
+4. SAM generates a refined segmentation mask.
+
+5. The incorrect YOLO mask is replaced.
+
+6. Updated outputs are generated:
+   - corrected mask
+   - overlay visualization
+   - corrected_results.json
+
+---
+
+## ▶️ Example Usage
+
+Basic correction:
+
+```bash
+PYTHONPATH=. python scripts/sam_correct.py \
+  --image data/raw/test.jpg \
+  --yolo-json outputs/yolo/json/results.json \
+  --det-id 0
