@@ -337,3 +337,43 @@ PYTHONPATH=. python scripts/sam_correct.py \
   --image data/raw/test.jpg \
   --yolo-json outputs/yolo/json/results.json \
   --det-id 0
+
+
+---
+
+# ✅ Level 6 – Active Learning & Automated Retraining
+
+## 🎯 Objective
+
+Create a self-improving AI system.
+
+The model should improve automatically using corrected predictions provided by the user.
+
+---
+
+## 🔁 Active Learning Pipeline
+
+1. YOLO performs initial segmentation
+2. User corrects predictions using SAM
+3. Corrected masks are saved
+4. Masks are converted into YOLO segmentation format
+5. Dataset is updated
+6. A retraining process is triggered
+7. A new improved model is generated
+
+---
+
+## 🧠 What is Active Learning?
+
+Active Learning is a machine learning strategy where:
+
+- The model makes predictions
+- The user corrects difficult or wrong predictions
+- The corrections become new training data
+- The model retrains and improves
+
+This allows continuous performance improvement over time.
+
+---
+
+## 📂 Active Learning Data Structure
